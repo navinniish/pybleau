@@ -6,11 +6,12 @@ def main():
     pass
 
 @main.command()
-@click.option('--server', required=True, help='Tableau Server URL')
-@click.option('--token-name', required=True)
-@click.option('--token-secret', required=True)
-def auth(server, token_name, token_secret):
-    from pybleau.auth import TableauClient
-    client = TableauClient(server, token_name, token_secret)
-    token = client.authenticate()
-    click.echo(f"Authenticated. Token: {token}")
+@click.option('--token', required=True)
+@click.option('--site-id', required=True)
+@click.option('--server', required=True)
+def list_workbooks(token, site_id, server):
+    from pybleau.workbooks import WorkbookManager
+    manager = WorkbookManager(token, site_id, server)
+    workbooks = manager.list_workbooks()
+    for wb in workbooks:
+        click.echo(f"{wb['id']} - {wb['name']}")
