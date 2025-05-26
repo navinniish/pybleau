@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pybleau"
+version = "0.1.0"
+description = "A Python library for Tableau APIs"
+authors = [{name = "navinniish"}]
+dependencies = ["requests"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pybleau*"]
