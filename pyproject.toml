@@ -1,18 +1,50 @@
+[build-system]
+requires = ["setuptools>=77.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "pybleau"
 version = "0.1.0"
-description = "A Python wrapper for Tableau's REST and Metadata APIs."
+description = "A Python library to programmatically interact with Tableau (REST API, Hyper, Metadata)."
 readme = "README.md"
 requires-python = ">=3.7"
-license = {text = "MIT"}
+license = "MIT"
+authors = [
+    {name = "navinniish", email = "navinniish001@gmail.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
 dependencies = [
-    "requests",
-    "click",
-    "graphql-core",
+    "requests>=2.25.0",
+    "tableauhyperapi>=0.0.17068",
 ]
 
-# If you are dynamically generating some fields:
-dynamic = ["readme", "requires-python"]
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "flake8>=3.8.0",
+    "black>=21.0.0",
+]
+
+[project.scripts]
+pybleau = "pybleau.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/navinniish/pybleau"
+Repository = "https://github.com/navinniish/pybleau.git"
+Issues = "https://github.com/navinniish/pybleau/issues"
+
+[tool.setuptools]
+packages = ["pybleau"]
+
+[tool.setuptools.package-dir]
+pybleau = "."
