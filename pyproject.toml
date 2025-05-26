@@ -1,0 +1,10 @@
+[project]
+name = "pybleau"
+version = "0.1.0"
+description = "A Python library for interacting with Tableau REST and Metadata APIs."
+authors = [{name = "Your Name", email = "you@example.com"}]
+license = {text = "MIT"}
+dependencies = ["requests", "click"]
+
+[project.scripts]
+pybleau = "pybleau.cli:main"
