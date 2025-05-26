@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "A Python library for Tableau APIs"
 authors = [{name = "navinniish"}]
 dependencies = ["requests"]
+requires-python = ">=3.7"
 
 [tool.setuptools.packages.find]
 where = ["."]
