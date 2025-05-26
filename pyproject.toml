@@ -1,10 +1,18 @@
 [project]
 name = "pybleau"
 version = "0.1.0"
-description = "A Python library for interacting with Tableau REST and Metadata APIs."
-authors = [{name = "Your Name", email = "you@example.com"}]
-license = {text = "MIT"}
-dependencies = ["requests", "click"]
+description = "A Python wrapper for Tableau's REST and Metadata APIs"
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+dependencies = [
+    "requests",
+    "click"
+]
 
-[project.scripts]
-pybleau = "pybleau.cli:main"
+# Add dynamic fields if you're pulling them from other files
+dynamic = ["readme", "requires-python"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
