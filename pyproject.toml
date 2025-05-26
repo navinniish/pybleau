@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=77.0.0", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,9 +8,9 @@ version = "0.1.0"
 description = "A Python library to programmatically interact with Tableau (REST API, Hyper, Metadata)."
 readme = "README.md"
 requires-python = ">=3.7"
-license = "MIT"
+license = {text = "MIT"}
 authors = [
-    {name = "navinniish", email = "navinniish001@gmail.com"}
+    {name = "navinniish"}
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -24,27 +24,20 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 dependencies = [
-    "requests>=2.25.0",
-    "tableauhyperapi>=0.0.17068",
+    "requests",
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=6.0",
     "flake8>=3.8.0",
-    "black>=21.0.0",
 ]
-
-[project.scripts]
-pybleau = "pybleau.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/navinniish/pybleau"
 Repository = "https://github.com/navinniish/pybleau.git"
 Issues = "https://github.com/navinniish/pybleau/issues"
 
-[tool.setuptools]
-packages = ["pybleau"]
-
-[tool.setuptools.package-dir]
-pybleau = "."
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pybleau*"]
