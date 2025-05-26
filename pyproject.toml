@@ -1,18 +1,18 @@
 [project]
 name = "pybleau"
 version = "0.1.0"
-description = "A Python wrapper for Tableau's REST and Metadata APIs"
+description = "A Python wrapper for Tableau's REST and Metadata APIs."
 readme = "README.md"
 requires-python = ">=3.7"
-license = "MIT"
+license = {text = "MIT"}
 dependencies = [
     "requests",
-    "click"
+    "click",
+    "graphql-core",
 ]
 
-# Add dynamic fields if you're pulling them from other files
+# If you are dynamically generating some fields:
 dynamic = ["readme", "requires-python"]
-
 [build-system]
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
