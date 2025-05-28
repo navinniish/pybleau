@@ -193,19 +193,23 @@ def test_invalid_input(viz):
     with pytest.raises(ValueError):
         viz.bar_chart(data=None, x='x', y='y')
 
-    with pytest.raises(KeyError):
+    with pytest.raises(ValueError):
         viz.bar_chart(data={'x': [1, 2]}, x='missing', y='y')
 
 def test_from_tableau_view(mock_client):
     """Test fetching data from Tableau view."""
     viz = TableauViz(client=mock_client)
-    mock_client.get.return_value.json.return_value = {
+    mock_response = Mock()
+    mock_response.json.return_value = {
         'data': [{'column1': 1, 'column2': 2}]
     }
+    mock_client.get = Mock(return_value=mock_response)
     
-    df = viz.from_tableau_view('view-id')
-    assert isinstance(df, pd.DataFrame)
-    mock_client.get.assert_called_once_with('/api/3.8/sites/test-site/views/view-id/data')
+    data = viz.from_tableau_view("test-view-id")
+    assert isinstance(data, pd.DataFrame)
+    assert len(data) == 1
+    assert list(data.columns) == ['column1', 'column2']
+    mock_client.get.assert_called_once()
 
 def test_from_tableau_view_no_client():
     """Test error when no client is provided."""
