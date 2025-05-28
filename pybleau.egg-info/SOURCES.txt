@@ -1,0 +1,20 @@
+LICENSE
+README.md
+pyproject.toml
+pybleau/__init__.py
+pybleau/auth.py
+pybleau/cli.py
+pybleau/metadata.py
+pybleau/workbooks.py
+pybleau.egg-info/PKG-INFO
+pybleau.egg-info/SOURCES.txt
+pybleau.egg-info/dependency_links.txt
+pybleau.egg-info/requires.txt
+pybleau.egg-info/top_level.txt
+tests/test_auth.py
+tests/test_diagnostic.py
+tests/test_integration.py
+tests/test_workbooks.py
+tests/tests.py
+tests/tests_ metadata.py
+tests/tests_simple.py
